@@ -16,10 +16,10 @@
                     <img :src="image" alt="img-product">
                 </div>
                 <div class="product-info">
-                    <h1>{{ product_title }}</h1>
-                    <p v-if="InStock >= 10">In Stock</p>
-                    <p v-else-if="InStock < 10 && InStock >=1">Almost of out</p>
-                    <p v-else>Out of stock</p>
+                    <h1>{{product_title}}</h1>
+                    <p v-if="inStock > 10">In Stock</p>
+                    <p v-else-if="inStock <10 && inStock >1">Restam apenas: {{inStock}}</p>
+                    <p v-else>Out of Stock</p>  
                 </div>
             </div>
         </div>
@@ -31,9 +31,9 @@
     createApp({
         setup() {
             return {
-                product_title: ref('T-Shirt'),
+                product_title: ref('T-shirt'),
                 image: ref("./assets/images/tshirtblue.png"),
-                InStock: ref(9)
+                inStock: ref(5),
             };
         }
     }).mount('#app')
